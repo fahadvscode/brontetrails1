@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest-dark: #2d5f6b;
+  --forest-mid: #357d8f;
+  --forest-green: #3e7f93;
+  --gold: #3e7f93;
+  --gold-light: #5a9aad;
+  --cream: #ffffff;
+  --white: #ffffff;
+  --text-body: #1a1a1a;
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-montserrat);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream font-body text-text-body antialiased;
+}
+
+@layer components {
+  .gold-divider {
+    @apply mx-auto h-px w-[60px] bg-forest-green;
+  }
+
+  .gold-divider-light {
+    @apply mx-auto h-px w-[60px] bg-white;
+  }
+
+  .section-label {
+    @apply font-body text-xs font-semibold uppercase tracking-[0.2em] text-forest-green;
+  }
+
+  .section-label-light {
+    @apply font-body text-xs font-semibold uppercase tracking-[0.2em] text-white;
+  }
+
+  .gold-corners {
+    @apply relative;
+  }
+
+  .gold-corners::before,
+  .gold-corners::after {
+    content: "";
+    @apply pointer-events-none absolute h-4 w-4 border-forest-green;
+  }
+
+  .gold-corners::before {
+    @apply left-0 top-0 border-l border-t;
+  }
+
+  .gold-corners::after {
+    @apply bottom-0 right-0 border-b border-r;
+  }
+
+  .gold-corners-inner::before,
+  .gold-corners-inner::after {
+    content: "";
+    @apply pointer-events-none absolute h-4 w-4 border-forest-green;
+  }
+
+  .gold-corners-inner::before {
+    @apply right-0 top-0 border-r border-t;
+  }
+
+  .gold-corners-inner::after {
+    @apply bottom-0 left-0 border-b border-l;
+  }
+
+  .btn-gold {
+    @apply inline-flex min-h-12 items-center justify-center bg-forest-green px-8 py-3 font-body text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-forest-dark;
+  }
+
+  .btn-outline-cream {
+    @apply inline-flex min-h-12 items-center justify-center border border-white px-8 py-3 font-body text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-forest-dark;
+  }
+
+  .hero-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+  }
+
+  .form-input {
+    @apply w-full border border-forest-mid/20 bg-white px-4 py-3 font-body text-sm text-text-body outline-none transition-colors focus:border-forest-green focus:ring-1 focus:ring-forest-green;
+  }
+
+  .form-label {
+    @apply mb-1 block font-body text-xs font-semibold uppercase tracking-wide text-forest-mid;
+  }
+}
