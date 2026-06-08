@@ -58,7 +58,7 @@ export default function OgImage() {
             textAlign: "center",
           }}
         >
-          Register for VIP Access · fahadsold.com
+          Register for VIP Access
         </div>
       </div>
     ),

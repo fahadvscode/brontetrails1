@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, IMAGES } from "@/lib/constants";
+import { IMAGES } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -17,27 +17,16 @@ export default function Footer() {
             />
           </div>
         </div>
-        <div className="grid gap-8 text-center text-xs leading-relaxed text-white/70 md:grid-cols-3 md:text-left">
-          <div>
-            <p className="font-semibold text-white">
-              Bronte Trails Oakville | Fahad Javed Real Estate
-            </p>
-          </div>
-          <div>
-            <p>
-              © 2026 {CONTACT.name}, {CONTACT.title},{" "}
-              {CONTACT.brokerage}, Brokerage. The information contained herein
-              is from sources believed reliable but accuracy is not guaranteed.
-              Not intended to solicit buyers or sellers currently under contract
-              with another brokerage.
-            </p>
-            <p className="mt-2">
-              All information from sources deemed reliable but not guaranteed.
-              Prices and specifications subject to change without notice.
-              E.&amp;O.E. 2026.
-            </p>
-          </div>
-          <div className="flex justify-center gap-6 md:justify-end">
+        <div className="text-center text-xs leading-relaxed text-white/70 md:text-left">
+          <p className="font-semibold text-white">Bronte Trails Oakville</p>
+          <p className="mt-4 max-w-3xl">
+            This website is for informational purposes only. We do not represent
+            the builder, Caivan Communities, or any party affiliated with the
+            development. All information is from sources believed reliable but
+            accuracy is not guaranteed. Prices, specifications, and availability
+            are subject to change without notice. E.&amp;O.E.
+          </p>
+          <div className="mt-6 flex justify-center gap-6 md:justify-start">
             <Link href="/privacy" className="hover:text-white">
               Privacy Policy
             </Link>

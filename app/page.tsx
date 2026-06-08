@@ -8,7 +8,6 @@ import Amenities from "@/components/Amenities";
 import Caivan from "@/components/Caivan";
 import Investment from "@/components/Investment";
 import FAQ from "@/components/FAQ";
-import Agent from "@/components/Agent";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import StickyFormShortcut from "@/components/StickyFormShortcut";
@@ -28,7 +27,6 @@ export default function Home() {
         <Caivan />
         <Investment />
         <FAQ />
-        <Agent />
       </main>
       <Footer />
       <FloatingCTA />

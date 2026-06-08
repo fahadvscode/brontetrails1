@@ -20,17 +20,6 @@ export const BRAND = {
   white: "#ffffff",
 } as const;
 
-export const CONTACT = {
-  name: "Fahad Javed",
-  title: "Sales Representative",
-  brokerage: "Century 21 Property Zone Realty Inc.",
-  phone: "647-898-1739",
-  phoneTel: "tel:6478981739",
-  email: "fahad@fahadsold.com",
-  website: "https://fahadsold.com",
-  address: "600 Matheson Blvd W, Unit 5, Mississauga, ON",
-} as const;
-
 export const PROJECT = {
   name: "Bronte Trails",
   tag: "Bronte Trails Oakville",

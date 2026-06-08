@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "How do I get VIP pricing for Bronte Trails?",
-    a: "Register on this page or call Fahad Javed directly at 647-898-1739. Fahad is a Platinum access broker who can provide floor plans, pricing, and incentive details before the public launch.",
+    a: "Register on this page to receive floor plans, pricing, and incentive details before the public launch.",
   },
 ];
 

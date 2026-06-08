@@ -6,7 +6,6 @@ import {
   apartmentComplexSchema,
   breadcrumbSchema,
   faqSchema,
-  realEstateAgentSchema,
 } from "@/lib/schema";
 import "./globals.css";
 
@@ -29,7 +28,7 @@ const montserrat = Montserrat({
 const title =
   "Bronte Trails Oakville | Pre-Construction Townhomes by Caivan | Register Now";
 const description =
-  "Bronte Trails by Caivan — pre-construction freehold townhomes at Bronte Road & Upper Middle Road West, Oakville. Register for VIP floor plans, pricing & platinum access. Call 647-898-1739.";
+  "Bronte Trails by Caivan — pre-construction freehold townhomes at Bronte Road & Upper Middle Road West, Oakville. Register for VIP floor plans, pricing & platinum access.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
     title:
       "Bronte Trails Oakville by Caivan | New Townhomes — Register VIP",
     description:
-      "Coming soon to Oakville: Bronte Trails freehold townhomes by Caivan at Bronte Road & Upper Middle Road West. Backed by Bronte Creek Provincial Park. Register with Fahad Javed for Platinum pricing.",
+      "Coming soon to Oakville: Bronte Trails freehold townhomes by Caivan at Bronte Road & Upper Middle Road West. Backed by Bronte Creek Provincial Park. Register for VIP access.",
     type: "website",
     url: SITE_URL,
     images: [{ url: IMAGES.aerial, width: 1200, height: 630, alt: "Bronte Trails Oakville aerial view" }],
@@ -62,7 +61,6 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  realEstateAgentSchema,
   apartmentComplexSchema,
   faqSchema,
   breadcrumbSchema,

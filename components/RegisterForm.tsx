@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { CONTACT, PROJECT } from "@/lib/constants";
+import { PROJECT } from "@/lib/constants";
 
 export type BuyerType =
   | "first-time"
@@ -82,7 +82,7 @@ export default function RegisterForm({
       onSuccess?.();
     } catch {
       setSubmitError(
-        "Something went wrong. Please call us directly at 647-898-1739."
+        "Something went wrong. Please try again in a moment."
       );
     }
   };
@@ -110,7 +110,8 @@ export default function RegisterForm({
           Thank you!
         </p>
         <p className="mt-2 font-body text-sm text-forest-mid">
-          Fahad will be in touch within 60 minutes with your VIP package.
+          You&apos;re registered. We&apos;ll be in touch with your VIP package
+          soon.
         </p>
       </div>
     );
@@ -269,8 +270,7 @@ export default function RegisterForm({
               })}
             />
             <span>
-              Yes, I&apos;d like to receive VIP updates from Fahad Javed Real
-              Estate
+              Yes, I&apos;d like to receive VIP updates about Bronte Trails
             </span>
           </label>
           {errors.consent && (
@@ -293,13 +293,6 @@ export default function RegisterForm({
         {isSubmitting ? "Submitting..." : "Register for VIP Access"}
       </button>
 
-      {!isCompact && (
-        <p className="text-center text-[10px] leading-relaxed text-gray-500">
-          {CONTACT.name}, {CONTACT.title} — {CONTACT.brokerage} |{" "}
-          {CONTACT.phone} | {CONTACT.email} | fahadsold.com | Brokerage: 600
-          Matheson Blvd W, Unit 5, Mississauga
-        </p>
-      )}
     </form>
   );
 }

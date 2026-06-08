@@ -1,26 +1,4 @@
-import { CONTACT, PROJECT, SITE_URL } from "./constants";
-
-export const realEstateAgentSchema = {
-  "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  name: CONTACT.name,
-  jobTitle: CONTACT.title,
-  worksFor: {
-    "@type": "RealEstateOrganization",
-    name: `${CONTACT.brokerage}`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "600 Matheson Blvd W, Unit 5",
-      addressLocality: "Mississauga",
-      addressRegion: "ON",
-      addressCountry: "CA",
-    },
-  },
-  telephone: "+1-647-898-1739",
-  email: CONTACT.email,
-  url: CONTACT.website,
-  areaServed: "Oakville, Ontario, Canada",
-};
+import { PROJECT, SITE_URL } from "./constants";
 
 export const apartmentComplexSchema = {
   "@context": "https://schema.org",
@@ -104,7 +82,7 @@ export const faqSchema = {
       name: "How do I get VIP access to Bronte Trails pricing and floor plans?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Register your interest on this page or call Fahad Javed at 647-898-1739. As a Platinum VIP broker, Fahad provides early access to floor plans, price lists, and incentives before the public launch.",
+        text: "Register your interest on this page to receive early access to floor plans, price lists, and incentives before the public launch.",
       },
     },
     {

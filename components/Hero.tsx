@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CONTACT, IMAGES } from "@/lib/constants";
+import { IMAGES } from "@/lib/constants";
 
 const badges = [
   "🌿 Freehold — No Monthly Fees",
@@ -46,12 +46,9 @@ export default function Hero() {
             access before the public launch.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-10">
             <a href="#register" className="btn-gold text-center">
               Get VIP Access — Register Now
-            </a>
-            <a href={CONTACT.phoneTel} className="btn-outline-cream text-center">
-              Call {CONTACT.phone}
             </a>
           </div>
 
