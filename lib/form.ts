@@ -1,5 +1,25 @@
 import { PROJECT } from "@/lib/constants";
 
+const REGISTERED_KEY = "bronte_trails_registered";
+export const LEAD_REGISTERED_EVENT = "bronte-trails-lead-registered";
+
+export function markLeadRegistered() {
+  try {
+    sessionStorage.setItem(REGISTERED_KEY, "1");
+  } catch {
+    /* ignore */
+  }
+  window.dispatchEvent(new Event(LEAD_REGISTERED_EVENT));
+}
+
+export function hasRegisteredLead() {
+  try {
+    return sessionStorage.getItem(REGISTERED_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export interface LeadPayload {
   firstName: string;
   lastName: string;
@@ -68,4 +88,6 @@ export async function submitLead(
     }
     throw new Error(message);
   }
+
+  markLeadRegistered();
 }

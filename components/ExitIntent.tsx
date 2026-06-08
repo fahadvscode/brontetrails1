@@ -2,27 +2,43 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { hasRegisteredLead, LEAD_REGISTERED_EVENT } from "@/lib/form";
 import RegisterForm from "./RegisterForm";
 
 export default function ExitIntent() {
   const [show, setShow] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const [registered, setRegistered] = useState(false);
+
+  useEffect(() => {
+    if (hasRegisteredLead()) {
+      setRegistered(true);
+    }
+
+    const onRegistered = () => {
+      setRegistered(true);
+      setShow(false);
+    };
+    window.addEventListener(LEAD_REGISTERED_EVENT, onRegistered);
+    return () => window.removeEventListener(LEAD_REGISTERED_EVENT, onRegistered);
+  }, []);
 
   const handleMouseLeave = useCallback(
     (e: MouseEvent) => {
-      if (dismissed) return;
+      if (dismissed || registered) return;
       if (e.clientY <= 0 && window.innerWidth >= 1024) {
         setShow(true);
         setDismissed(true);
       }
     },
-    [dismissed]
+    [dismissed, registered]
   );
 
   useEffect(() => {
+    if (registered) return;
     document.addEventListener("mouseleave", handleMouseLeave);
     return () => document.removeEventListener("mouseleave", handleMouseLeave);
-  }, [handleMouseLeave]);
+  }, [handleMouseLeave, registered]);
 
   return (
     <AnimatePresence>
