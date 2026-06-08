@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { IMAGES } from "@/lib/constants";
 
@@ -14,23 +14,10 @@ const navLinks = [
 ];
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 shadow-sm backdrop-blur-md"
-          : "bg-transparent"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-forest-mid/10 bg-white/95 shadow-sm backdrop-blur-md">
       <nav className="mx-auto flex max-w-content items-center justify-between px-6 py-4 lg:px-8">
         <a href="#" className="relative block h-10 w-44 sm:h-12 sm:w-52">
           <Image
@@ -48,9 +35,7 @@ export default function Nav() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`font-body text-sm font-medium transition-colors hover:text-forest-green ${
-                  scrolled ? "text-forest-dark" : "text-white"
-                }`}
+                className="font-body text-sm font-medium text-forest-dark transition-colors hover:text-forest-green"
               >
                 {link.label}
               </a>
@@ -67,9 +52,7 @@ export default function Nav() {
 
         <button
           type="button"
-          className={`flex h-12 w-12 items-center justify-center lg:hidden ${
-            scrolled ? "text-forest-dark" : "text-white"
-          }`}
+          className="flex h-12 w-12 items-center justify-center text-forest-dark lg:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
