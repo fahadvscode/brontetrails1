@@ -4,10 +4,14 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { PROJECT } from "@/lib/constants";
 
+export type BrokerAnswer = "yes" | "no";
+
 export interface RegisterFormData {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
+  isBroker: BrokerAnswer;
 }
 
 interface RegisterFormProps {
@@ -34,9 +38,11 @@ export default function RegisterForm({
     const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL;
 
     const payload = {
-      name: data.name,
+      firstName: data.firstName,
+      lastName: data.lastName,
       email: data.email,
       phone: data.phone,
+      isBroker: data.isBroker,
       projectTag: PROJECT.tag,
       source: PROJECT.source,
     };
@@ -75,21 +81,37 @@ export default function RegisterForm({
       className={`space-y-4 ${className}`}
       noValidate
     >
-      <div>
-        <label htmlFor="name" className="form-label">
-          Name
-        </label>
-        <input
-          id="name"
-          type="text"
-          autoComplete="name"
-          placeholder="Your name"
-          className="form-input"
-          {...register("name", { required: "Name is required" })}
-        />
-        {errors.name && (
-          <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>
-        )}
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="firstName" className="form-label">
+            First Name
+          </label>
+          <input
+            id="firstName"
+            type="text"
+            autoComplete="given-name"
+            className="form-input"
+            {...register("firstName", { required: "First name is required" })}
+          />
+          {errors.firstName && (
+            <p className="mt-1 text-xs text-red-600">{errors.firstName.message}</p>
+          )}
+        </div>
+        <div>
+          <label htmlFor="lastName" className="form-label">
+            Last Name
+          </label>
+          <input
+            id="lastName"
+            type="text"
+            autoComplete="family-name"
+            className="form-input"
+            {...register("lastName", { required: "Last name is required" })}
+          />
+          {errors.lastName && (
+            <p className="mt-1 text-xs text-red-600">{errors.lastName.message}</p>
+          )}
+        </div>
       </div>
 
       <div>
@@ -137,6 +159,33 @@ export default function RegisterForm({
           <p className="mt-1 text-xs text-red-600">{errors.phone.message}</p>
         )}
       </div>
+
+      <fieldset>
+        <legend className="form-label mb-2">Are you a broker?</legend>
+        <div className="flex gap-4">
+          <label className="flex min-h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded border border-forest-mid/20 bg-white px-4 py-2 text-sm">
+            <input
+              type="radio"
+              value="yes"
+              className="h-4 w-4 accent-forest-green"
+              {...register("isBroker", { required: "Please select an option" })}
+            />
+            <span>Yes</span>
+          </label>
+          <label className="flex min-h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded border border-forest-mid/20 bg-white px-4 py-2 text-sm">
+            <input
+              type="radio"
+              value="no"
+              className="h-4 w-4 accent-forest-green"
+              {...register("isBroker", { required: "Please select an option" })}
+            />
+            <span>No</span>
+          </label>
+        </div>
+        {errors.isBroker && (
+          <p className="mt-1 text-xs text-red-600">{errors.isBroker.message}</p>
+        )}
+      </fieldset>
 
       {submitError && (
         <p className="text-sm text-red-600" role="alert">
