@@ -17,7 +17,7 @@ export default function RegisterSection() {
           <p className="section-label text-center">Register for VIP Access</p>
           <div className="gold-divider my-4" />
           <h2 className="mb-8 text-center font-display text-3xl text-forest-dark md:text-4xl">
-            Get Priority Floor Plans &amp; Platinum Pricing
+            Register for VIP Access
           </h2>
           <RegisterForm />
         </motion.div>
