@@ -63,6 +63,7 @@ export default function ExitIntent() {
             </p>
             <div className="mt-6">
               <RegisterForm
+                formType="exit-intent"
                 onSuccess={() => setTimeout(() => setShow(false), 2000)}
               />
             </div>

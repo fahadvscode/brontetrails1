@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import RegisterSection from "@/components/RegisterSection";
 import Overview from "@/components/Overview";
 import Location from "@/components/Location";
 import Schools from "@/components/Schools";
@@ -19,7 +18,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <RegisterSection />
         <Overview />
         <Location />
         <Schools />

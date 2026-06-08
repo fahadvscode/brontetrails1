@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { PROJECT } from "@/lib/constants";
+import { submitLead } from "@/lib/form";
 
 export type BrokerAnswer = "yes" | "no";
 
@@ -16,11 +16,13 @@ export interface RegisterFormData {
 
 interface RegisterFormProps {
   className?: string;
+  formType?: string;
   onSuccess?: () => void;
 }
 
 export default function RegisterForm({
   className = "",
+  formType = "hero",
   onSuccess,
 }: RegisterFormProps) {
   const [submitted, setSubmitted] = useState(false);
@@ -35,32 +37,25 @@ export default function RegisterForm({
 
   const onSubmit = async (data: RegisterFormData) => {
     setSubmitError("");
-    const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL;
-
-    const payload = {
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      phone: data.phone,
-      isBroker: data.isBroker,
-      projectTag: PROJECT.tag,
-      source: PROJECT.source,
-    };
 
     try {
-      if (webhookUrl) {
-        const res = await fetch(webhookUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) throw new Error("Submission failed");
-      }
+      await submitLead(
+        {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          phone: data.phone,
+          isBroker: data.isBroker,
+        },
+        formType,
+      );
       setSubmitted(true);
       reset();
       onSuccess?.();
-    } catch {
-      setSubmitError("Something went wrong. Please try again.");
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again.",
+      );
     }
   };
 
