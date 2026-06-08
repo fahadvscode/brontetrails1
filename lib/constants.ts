@@ -1,5 +1,6 @@
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://brontetrailsoakville.com";
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://bronte-trails-oakville.vercel.app"
+).replace(/\/$/, "");
 
 const SUPABASE_STORAGE =
   "https://cfzuypbljirmibmxpabi.supabase.co/storage/v1/object/public/rental-documents";
