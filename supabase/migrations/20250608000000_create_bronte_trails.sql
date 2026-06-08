@@ -8,7 +8,7 @@ create table if not exists public.bronte_trails (
   phone text not null,
   is_broker text not null default '',
   project_tag text not null default 'Bronte Trails Oakville',
-  source text not null default 'brontetrailsoakville.com',
+  source text not null default 'www.brontetrails.ca',
   page_path text not null default '/',
   form_type text not null default 'register',
   utm_source text not null default '',

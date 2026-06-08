@@ -1,5 +1,5 @@
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://bronte-trails-oakville.vercel.app"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.brontetrails.ca"
 ).replace(/\/$/, "");
 
 const SUPABASE_STORAGE =
@@ -24,6 +24,6 @@ export const BRAND = {
 export const PROJECT = {
   name: "Bronte Trails",
   tag: "Bronte Trails Oakville",
-  source: "brontetrailsoakville.com",
+  source: "www.brontetrails.ca",
   location: "Bronte Road & Upper Middle Road West, Oakville, Ontario",
 } as const;
