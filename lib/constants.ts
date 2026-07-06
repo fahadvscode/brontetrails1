@@ -3,7 +3,7 @@ export const SITE_URL = (
 ).replace(/\/$/, "");
 
 const SUPABASE_STORAGE =
-  "https://cfzuypbljirmibmxpabi.supabase.co/storage/v1/object/public/rental-documents";
+  "https://images.preconfactory.com/storage/v1/object/public/rental-documents";
 
 export const IMAGES = {
   aerial: `${SUPABASE_STORAGE}/1780959448519_0_BRONT-Aerial-FINAL-web.jpg`,
